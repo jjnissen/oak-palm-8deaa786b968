@@ -72,8 +72,10 @@
   .team-stats strong { color: #C8A24E; font-weight: 700; }
 
   /* BRAND STRIP */
-  .brand-strip { display: flex; align-items: center; justify-content: center; gap: 22px; padding: 5px 8px 6px; margin-bottom: 5px; }
-  .brand-strip .label { font-size: 7.5px; letter-spacing: 1.2px; text-transform: uppercase; color: #988879; font-weight: 600; padding-right: 6px; border-right: 1px solid #CCBFB3; }
+  .brand-strip { display: flex; align-items: center; justify-content: center; gap: 22px; padding: 6px 8px 7px; margin-bottom: 5px; }
+  .brand-group { display: flex; align-items: center; gap: 14px; }
+  .brand-strip .label { font-size: 7.5px; letter-spacing: 1.2px; text-transform: uppercase; color: #988879; font-weight: 600; line-height: 1.25; }
+  .brand-divider { width: 1px; align-self: stretch; background: #CCBFB3; margin: 2px 4px; }
   .brand-strip img { height: 22px; width: auto; opacity: 0.92; }
   .brand-strip img.tall { height: 26px; }
   .brand-strip img.wide { height: 18px; }
@@ -257,11 +259,18 @@
   </div>
 </div>
 <div class="brand-strip">
-  <div class="label">Brands built<br>&amp; scaled</div>
-  <img src="logos/Burger King logo.png" alt="Burger King" class="tall">
-  <img src="logos/popeyes.png" alt="Popeyes" class="tall">
-  <img src="logos/Tim hortons logo.png" alt="Tim Hortons">
-  <img src="logos/krispy kreme logo.png" alt="Krispy Kreme" class="wide">
+  <div class="brand-group">
+    <div class="label">Brands Built<br>&amp; Scaled</div>
+    <img src="logos/Burger King logo.png" alt="Burger King" class="tall">
+    <img src="logos/popeyes.png" alt="Popeyes" class="tall">
+    <img src="logos/Tim hortons logo.png" alt="Tim Hortons">
+    <img src="logos/Firehouse Subs.jpg" alt="Firehouse Subs">
+  </div>
+  <div class="brand-divider"></div>
+  <div class="brand-group">
+    <div class="label">Board<br>Member</div>
+    <img src="logos/krispy kreme logo.png" alt="Krispy Kreme" class="wide">
+  </div>
 </div>
 <div class="team-stats">
   Combined International Track Record — 2024: <strong>$19B SWS</strong> &nbsp;·&nbsp; <strong>$790M EBITDA</strong> &nbsp;·&nbsp; <strong>+50% growth</strong> vs. 2019 &nbsp;·&nbsp; <strong>90+ master franchisee agreements signed</strong> across the portfolio
