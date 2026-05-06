@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Project Oak Palm — Passive LP Opportunity</title>
+<style>
+  @page { size: letter; margin: 0; }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html, body { font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Helvetica Neue', sans-serif; color: #2d3330; }
+
+  /* SCREEN VIEW: page sits as a card on a tinted background */
+  body { background: #e8eae5; padding: 24px 16px; }
+  .page { width: 8.5in; min-height: 11in; padding: 0.40in 0.45in 0.30in 0.45in; font-size: 9.2px; line-height: 1.32; background: #fff; margin: 0 auto; box-shadow: 0 2px 24px rgba(45,51,48,0.12); }
+
+  /* TOOLBAR (screen only) */
+  .toolbar { position: fixed; top: 14px; right: 14px; z-index: 100; display: flex; gap: 8px; align-items: center; }
+  .toolbar a { display: inline-flex; align-items: center; gap: 6px; padding: 9px 14px; background: #4C5C4A; color: #fff; text-decoration: none; border-radius: 3px; font: 600 10.5px/1 'Inter', -apple-system, sans-serif; letter-spacing: 1px; text-transform: uppercase; box-shadow: 0 2px 10px rgba(45,51,48,0.18); transition: background 0.15s ease; }
+  .toolbar a:hover { background: #636F65; }
+  .toolbar a svg { width: 12px; height: 12px; fill: currentColor; }
+  .toolbar .badge { padding: 9px 12px; background: rgba(76,92,74,0.08); color: #4C5C4A; border: 1px solid #CCBFB3; border-radius: 3px; font: 500 10px/1 'Inter', sans-serif; letter-spacing: 1px; text-transform: uppercase; }
+
+  /* PRINT: drop background, drop shadow, drop toolbar */
+  @media print {
+    body { background: #fff; padding: 0; }
+    .page { box-shadow: none; margin: 0; }
+    .toolbar { display: none; }
+  }
+
+  /* HEADER */
+  .header { display: flex; justify-content: space-between; align-items: flex-end; border-bottom: 2px solid #4C5C4A; padding-bottom: 6px; margin-bottom: 10px; }
+  .firm { font-size: 14px; font-weight: 700; letter-spacing: 2.5px; color: #4C5C4A; }
+  .firm .accent { color: #C8A24E; }
+  .header-meta { font-size: 8px; letter-spacing: 1.5px; color: #636F65; text-transform: uppercase; text-align: right; line-height: 1.4; }
+
+  /* HERO */
+  .hero { padding: 9px 12px; background: linear-gradient(135deg, #4C5C4A 0%, #636F65 100%); color: #fff; border-radius: 2px; margin-bottom: 9px; }
+  .hero-eyebrow { font-size: 7.5px; letter-spacing: 2px; text-transform: uppercase; opacity: 0.75; margin-bottom: 3px; }
+  .hero-title { font-size: 14.5px; font-weight: 600; line-height: 1.25; margin-bottom: 4px; }
+  .hero-stat { font-size: 9.5px; font-weight: 500; opacity: 0.95; }
+  .hero-stat strong { color: #C8A24E; font-weight: 700; }
+
+  /* SECTION TITLES */
+  .section-title { font-size: 8.5px; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; color: #4C5C4A; padding-bottom: 3px; border-bottom: 1px solid #CCBFB3; margin-bottom: 6px; }
+
+  /* TWO-COLUMN ROW */
+  .row { display: flex; gap: 14px; margin-bottom: 9px; }
+  .col { flex: 1; }
+
+  /* OVERVIEW BULLETS */
+  .bullets { list-style: none; padding: 0; }
+  .bullets li { position: relative; padding-left: 11px; margin-bottom: 3.5px; font-size: 9px; line-height: 1.38; }
+  .bullets li::before { content: ""; position: absolute; left: 0; top: 5px; width: 4px; height: 4px; background: #4C5C4A; border-radius: 50%; }
+  .bullets strong { color: #4C5C4A; font-weight: 600; }
+
+  /* CHARTS */
+  .charts-row { display: flex; gap: 14px; margin-bottom: 9px; }
+  .chart-wrap { flex: 1; padding: 8px 10px; background: #DDD8CF; border-radius: 2px; }
+  .chart-title { font-size: 8.5px; font-weight: 700; color: #4C5C4A; letter-spacing: 0.5px; margin-bottom: 1px; }
+  .chart-sub { font-size: 7.5px; color: #636F65; margin-bottom: 5px; font-style: italic; }
+  .chart-svg { width: 100%; height: 95px; }
+  .chart-caption { font-size: 7.5px; color: #2d3330; margin-top: 3px; line-height: 1.35; }
+  .chart-caption strong { color: #4C5C4A; }
+
+  /* TEAM */
+  .team-strip { display: flex; gap: 8px; margin-bottom: 6px; }
+  .team-card { flex: 1; padding: 8px 9px; background: #fff; border: 1px solid #CCBFB3; border-top: 2.5px solid #4C5C4A; border-radius: 2px; }
+  .team-name { font-size: 10px; font-weight: 700; color: #4C5C4A; margin-bottom: 1px; letter-spacing: 0.3px; }
+  .team-role { font-size: 7.5px; color: #988879; text-transform: uppercase; letter-spacing: 0.8px; margin-bottom: 5px; line-height: 1.25; }
+  .team-bio { font-size: 8.2px; line-height: 1.38; color: #2d3330; }
+  .team-bio strong { color: #4C5C4A; font-weight: 600; }
+  .team-stats { padding: 6px 10px; background: #4C5C4A; color: #fff; font-size: 8.5px; text-align: center; border-radius: 2px; line-height: 1.35; }
+  .team-stats strong { color: #C8A24E; font-weight: 700; }
+
+  /* BRAND STRIP */
+  .brand-strip { display: flex; align-items: center; justify-content: center; gap: 22px; padding: 5px 8px 6px; margin-bottom: 5px; }
+  .brand-strip .label { font-size: 7.5px; letter-spacing: 1.2px; text-transform: uppercase; color: #988879; font-weight: 600; padding-right: 6px; border-right: 1px solid #CCBFB3; }
+  .brand-strip img { height: 22px; width: auto; opacity: 0.92; }
+  .brand-strip img.tall { height: 26px; }
+  .brand-strip img.wide { height: 18px; }
+
+  /* TRANSACTION & RETURNS */
+  .deal-row { display: flex; gap: 10px; margin-top: 9px; }
+  .deal-box { flex: 1; padding: 8px 11px; border: 1px solid #CCBFB3; border-radius: 2px; background: #fff; }
+  .deal-box.highlight { background: #DDD8CF; border-color: #4C5C4A; }
+  .deal-grid { display: grid; grid-template-columns: auto 1fr; gap: 2px 10px; font-size: 8.5px; }
+  .deal-grid .lbl { color: #636F65; font-weight: 500; }
+  .deal-grid .val { color: #2d3330; font-weight: 600; text-align: right; }
+  .returns-grid { display: grid; grid-template-columns: 1fr auto auto; gap: 2px 12px; font-size: 8.8px; }
+  .returns-grid .lbl { color: #636F65; }
+  .returns-grid .val-base { color: #4C5C4A; font-weight: 700; text-align: right; }
+  .returns-grid .val-up { color: #C8A24E; font-weight: 700; text-align: right; }
+  .returns-grid .hdr { font-size: 7.5px; text-transform: uppercase; letter-spacing: 1px; color: #988879; font-weight: 600; }
+
+  /* FOOTER */
+  .footer { margin-top: 9px; padding-top: 6px; border-top: 1px solid #CCBFB3; text-align: center; font-size: 7.5px; color: #988879; font-style: italic; line-height: 1.4; }
+  .footer strong { color: #4C5C4A; font-style: normal; font-weight: 600; }
+</style>
+</head>
+<body>
+
+<div class="toolbar">
+  <a href="Oak-Palm-Teaser.pdf" download>
+    <svg viewBox="0 0 16 16"><path d="M8 1v9.5l-3-3-1 1L8 12.5l4-4-1-1-3 3V1H8zM2 14h12v-2H2v2z"/></svg>
+    Download PDF
+  </a>
+</div>
+
+<div class="page">
+
+<!-- HEADER -->
+<div class="header">
+  <div class="firm">OAK<span class="accent">·</span>PALM</div>
+  <div class="header-meta">
+    Confidential Passive LP Opportunity<br>
+    Project Oak Palm &nbsp;|&nbsp; May 2026
+  </div>
+</div>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="hero-eyebrow">The Opportunity</div>
+  <div class="hero-title">Acquisition of 73% of the global category leader in a $2B+ tropical superfruit-led QSR segment growing 12–15% annually</div>
+  <div class="hero-stat">$110M total transaction at <strong>9.1x adjusted '26 EBITDA</strong> — ~50% discount to last institutional round &nbsp;·&nbsp; Base case: <strong>5.0x MOIC / 38% IRR</strong></div>
+</div>
+
+<!-- COMPANY + HIGHLIGHTS -->
+<div class="row">
+  <div class="col">
+    <div class="section-title">Company Overview</div>
+    <ul class="bullets">
+      <li><strong>#1 global brand</strong> in its category — founded 2016, <strong>~1,000 stores</strong> across <strong>40+ countries</strong>, ~$250M system-wide sales run-rate</li>
+      <li><strong>89% franchised</strong> with own production — only vertically integrated player; direct sourcing of the proprietary input drives best-in-class take-rate of <strong>11.5%+</strong></li>
+      <li>Founder-led, operating company with tier-1 institutional shareholder; deal sourced via proprietary relationship at an inflection point</li>
+      <li>Low-capex store model: <strong>$36k franchisor income on $200k unit capex</strong> &nbsp;|&nbsp; ~75% of QSR franchisor income at &lt;20% of QSR capex</li>
+      <li>Bain &amp; Co. mapped potential of <strong>$1.7B SWS / 5,000+ stores</strong>; ~400 contracted new stores in 2026/27 pipeline</li>
+    </ul>
+  </div>
+  <div class="col">
+    <div class="section-title">Investment Highlights</div>
+    <ul class="bullets">
+      <li><strong>Category &amp; positioning:</strong> only global, vertically integrated player in a fast-growing, high-frequency, demographically attractive QSR segment</li>
+      <li><strong>Proven unit economics:</strong> 4× weekly visits per customer, top-of-industry repeat intent, <strong>2–4yr franchisee payback</strong> across markets</li>
+      <li><strong>Mapped value creation:</strong> $5–6M near-term G&amp;A &amp; marketing efficiencies (~50% EBITDA upside) plus margin expansion via master-franchise re-architecture</li>
+      <li><strong>Sponsor edge:</strong> GP team built and operated a directly comparable global QSR platform — same playbook, now in a brand they control (see right)</li>
+      <li><strong>Asymmetric entry:</strong> 9.1x adjusted vs. <strong>27–35x</strong> for high-growth public comps (Dutch Bros, CAVA, Wingstop); 20–31x for relevant transaction comps</li>
+    </ul>
+  </div>
+</div>
+
+<!-- CHARTS -->
+<div class="charts-row">
+  <div class="chart-wrap">
+    <div class="chart-title">Asset: SWS &amp; Store Growth</div>
+    <div class="chart-sub">62% SWS CAGR 2020–2025 to ~$250M run-rate</div>
+    <svg class="chart-svg" viewBox="0 0 320 100" preserveAspectRatio="none">
+      <!-- baseline -->
+      <line x1="20" y1="85" x2="315" y2="85" stroke="#988879" stroke-width="0.5"/>
+      <!-- SWS bars (purple/Beverly tone) - values: 21,19,44,72,103,156,212 -->
+      <!-- max 212, scale: 65px high = 212. Each bar 28w spacing 40 -->
+      <g fill="#4C5C4A">
+        <rect x="25"  y="79.6" width="22" height="5.4"/>
+        <rect x="65"  y="79.2" width="22" height="5.8"/>
+        <rect x="105" y="71.5" width="22" height="13.5"/>
+        <rect x="145" y="63.0" width="22" height="22.0"/>
+        <rect x="185" y="53.4" width="22" height="31.6"/>
+        <rect x="225" y="37.2" width="22" height="47.8"/>
+        <rect x="265" y="20.0" width="22" height="65.0"/>
+      </g>
+      <!-- value labels above bars -->
+      <g font-size="6.2" fill="#2d3330" text-anchor="middle" font-weight="600">
+        <text x="36"  y="76">21</text>
+        <text x="76"  y="76">19</text>
+        <text x="116" y="68">44</text>
+        <text x="156" y="60">72</text>
+        <text x="196" y="50">103</text>
+        <text x="236" y="34">156</text>
+        <text x="276" y="17">212</text>
+      </g>
+      <!-- year labels below -->
+      <g font-size="5.8" fill="#636F65" text-anchor="middle">
+        <text x="36"  y="93">2019</text>
+        <text x="76"  y="93">2020</text>
+        <text x="116" y="93">2021</text>
+        <text x="156" y="93">2022</text>
+        <text x="196" y="93">2023</text>
+        <text x="236" y="93">2024</text>
+        <text x="276" y="93">2025</text>
+      </g>
+      <!-- trend arrow -->
+      <path d="M 30 80 Q 150 60 280 22" stroke="#C8A24E" stroke-width="1.3" fill="none" stroke-dasharray="2,1.5"/>
+      <polygon points="280,22 274,24 277,17" fill="#C8A24E"/>
+      <!-- axis label -->
+      <text x="20" y="14" font-size="5.5" fill="#988879">SWS USDm</text>
+    </svg>
+    <div class="chart-caption"><strong>+460 stores added since 2022</strong> · 89% SWS CAGR since founding · Multiple growth engines across LATAM, S. Europe, US&amp;C, Australia, Korea, Middle East</div>
+  </div>
+
+  <div class="chart-wrap">
+    <div class="chart-title">Sponsor Proof: Identical Playbook Executed</div>
+    <div class="chart-sub">Popeyes International EBITDA: $8M → $43M (50% CAGR)</div>
+    <svg class="chart-svg" viewBox="0 0 320 100" preserveAspectRatio="none">
+      <line x1="20" y1="85" x2="315" y2="85" stroke="#988879" stroke-width="0.5"/>
+      <!-- bars values: 12, 12, 8, 13, 19, 28, 43; max 43 -> 65px -->
+      <g fill="#C8A24E">
+        <rect x="25"  y="66.9" width="22" height="18.1"/>
+        <rect x="65"  y="66.9" width="22" height="18.1"/>
+        <rect x="105" y="72.9" width="22" height="12.1"/>
+        <rect x="145" y="65.4" width="22" height="19.6"/>
+        <rect x="185" y="56.3" width="22" height="28.7"/>
+        <rect x="225" y="42.7" width="22" height="42.3"/>
+        <rect x="265" y="20.0" width="22" height="65.0"/>
+      </g>
+      <g font-size="6.2" fill="#2d3330" text-anchor="middle" font-weight="600">
+        <text x="36"  y="64">12</text>
+        <text x="76"  y="64">12</text>
+        <text x="116" y="70">8</text>
+        <text x="156" y="62">13</text>
+        <text x="196" y="53">19</text>
+        <text x="236" y="40">28</text>
+        <text x="276" y="17">43</text>
+      </g>
+      <g font-size="5.8" fill="#636F65" text-anchor="middle">
+        <text x="36"  y="93">2018</text>
+        <text x="76"  y="93">2019</text>
+        <text x="116" y="93">2020</text>
+        <text x="156" y="93">2021</text>
+        <text x="196" y="93">2022</text>
+        <text x="236" y="93">2023</text>
+        <text x="276" y="93">2024</text>
+      </g>
+      <!-- "Team takes over" marker -->
+      <line x1="95" y1="14" x2="95" y2="85" stroke="#4C5C4A" stroke-width="0.4" stroke-dasharray="1.5,1.5"/>
+      <text x="97" y="15" font-size="5.5" fill="#4C5C4A" font-weight="600">↓ GP team takes over</text>
+      <text x="20" y="14" font-size="5.5" fill="#988879">EBITDA USDm</text>
+    </svg>
+    <div class="chart-caption"><strong>Same stage, same model, same team:</strong> stores 578→1,563 (32% CAGR) · SWS $305M→$1.3B (45% CAGR) · refranchised every significant market with capitalized partners</div>
+  </div>
+</div>
+
+<!-- TEAM -->
+<div class="section-title">The Team — Built and Operated the Largest International QSR Platform in the World</div>
+<div class="team-strip">
+  <div class="team-card">
+    <div class="team-name">David Shear</div>
+    <div class="team-role">Former President, International<br>Restaurant Brands International (NYSE: QSR)</div>
+    <div class="team-bio">13+ yrs at <strong>RBI</strong>; 10+ as President of business units globally, 5+ on the global executive team reporting to the RBI CEO. Until 2024, ran <strong>15,000+ Burger King, Popeyes, Tim Hortons &amp; Firehouse</strong> restaurants across 100+ countries. Currently on the Board of <strong>Krispy Kreme</strong> (NASDAQ: DNUT). Bates / Harvard MBA.</div>
+  </div>
+  <div class="team-card">
+    <div class="team-name">Lucas Muniz</div>
+    <div class="team-role">Former CFO, International<br>Restaurant Brands International (NYSE: QSR)</div>
+    <div class="team-bio">12+ yrs at <strong>RBI</strong>; 5 yrs as RBI International CFO with focus on expansion, franchise profitability and master-franchise base. Former <strong>President of Tim Hortons International</strong> and <strong>GM of Burger King Asia</strong>. Ex-<strong>Morgan Stanley</strong> investment banking. Sao Paulo (Economics).</div>
+  </div>
+  <div class="team-card">
+    <div class="team-name">Jayapal &ldquo;JP&rdquo; Seshadri</div>
+    <div class="team-role">Former EVP, International &amp; Licensing<br>Senior franchising / M&amp;A operator</div>
+    <div class="team-bio">Lawyer with extensive M&amp;A and franchising experience across geographies. 4+ yrs at <strong>RBI</strong> on new-country entries and refranchisings across APAC (Doosan, Lotte, Affinity, Everstone, VIG). Currently <strong>EVP Licensing, Compliance &amp; International</strong> at <strong>King Koil</strong> (24 licensees, 79 countries). NUS LLB(Hons) / Ivey MBA.</div>
+  </div>
+</div>
+<div class="brand-strip">
+  <div class="label">Brands built<br>&amp; scaled</div>
+  <img src="logos/Burger King logo.png" alt="Burger King" class="tall">
+  <img src="logos/popeyes.png" alt="Popeyes" class="tall">
+  <img src="logos/Tim hortons logo.png" alt="Tim Hortons">
+  <img src="logos/krispy kreme logo.png" alt="Krispy Kreme" class="wide">
+</div>
+<div class="team-stats">
+  Combined International Track Record — 2024: <strong>$19B SWS</strong> &nbsp;·&nbsp; <strong>$790M EBITDA</strong> &nbsp;·&nbsp; <strong>+50% growth</strong> vs. 2019 &nbsp;·&nbsp; <strong>90+ master franchisee agreements signed</strong> across the portfolio
+</div>
+
+<!-- DEAL -->
+<div class="deal-row">
+  <div class="deal-box">
+    <div class="section-title" style="border-bottom: 1px solid #CCBFB3; margin-bottom: 5px;">Transaction Summary</div>
+    <div class="deal-grid">
+      <div class="lbl">Enterprise Value</div><div class="val">$150M</div>
+      <div class="lbl">Equity Value</div><div class="val">~$125M</div>
+      <div class="lbl">Multiple ('26E EBITDA)</div><div class="val">15.1x reported / 9.1x adj.</div>
+      <div class="lbl">Stake Acquired</div><div class="val">73% (controlling)</div>
+      <div class="lbl">Total Investment</div><div class="val">$110M</div>
+      <div class="lbl">&nbsp;&nbsp;Secondary / Primary</div><div class="val">$85M / $25M</div>
+      <div class="lbl">Use of Primary</div><div class="val">Plant Phase III, US corp. expansion, refranchising</div>
+      <div class="lbl">Founder Roll-Forward</div><div class="val">Yes — staying invested</div>
+    </div>
+  </div>
+  <div class="deal-box highlight">
+    <div class="section-title" style="border-bottom: 1px solid #4C5C4A; margin-bottom: 5px;">Returns &amp; GP Economics</div>
+    <div class="returns-grid" style="margin-bottom: 6px;">
+      <div class="hdr">Scenario</div><div class="hdr" style="text-align:right">Base</div><div class="hdr" style="text-align:right">Upside</div>
+      <div class="lbl">Year-5 EV</div><div class="val-base">$791M</div><div class="val-up">$1,250M</div>
+      <div class="lbl">MOIC</div><div class="val-base">5.0x</div><div class="val-up">7.9x</div>
+      <div class="lbl">IRR</div><div class="val-base">38%</div><div class="val-up">51%</div>
+    </div>
+    <div class="deal-grid" style="border-top: 1px solid #CCBFB3; padding-top: 5px;">
+      <div class="lbl">Management Fee</div><div class="val">0%</div>
+      <div class="lbl">Structuring Fee</div><div class="val">3% (converted to equity)</div>
+      <div class="lbl">LP Preferred Return</div><div class="val">8%</div>
+      <div class="lbl">GP Carry (tiered)</div><div class="val">20% / 25% @5x / 30% @7.5x</div>
+      <div class="lbl">GP / Manager Commit</div><div class="val">$6M+ &nbsp;(skin in the game)</div>
+    </div>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<div class="footer">
+  Summary materials only — full investment memorandum, financial model and data room available to qualified parties upon execution of NDA.<br>
+  <strong>Oak Palm</strong> &nbsp;·&nbsp; Confidential Passive LP Opportunity &nbsp;·&nbsp; May 2026
+</div>
+
+</div><!-- /.page -->
+
+</body>
+</html>
